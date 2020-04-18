@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.domain.User">
+    <!--@mbg.generated-->
+    <!--@Table test.`user`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `password`, img, signature
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from test.`user`
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from test.`user`
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into test.`user` (username, `password`, img,
+      signature)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR},
+      #{signature,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into test.`user`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.domain.User">
+    <!--@mbg.generated-->
+    update test.`user`
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.domain.User">
+    <!--@mbg.generated-->
+    update test.`user`
+    set username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      signature = #{signature,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update test.`user`
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="img = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.img,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="signature = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.signature,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into test.`user`
+    (username, `password`, img, signature)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.username,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, #{item.img,jdbcType=VARCHAR},
+        #{item.signature,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2020-04-15-->
+  <select id="findAllByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from test.`user`
+    where username=#{username,jdbcType=VARCHAR}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-04-15-->
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from test.`user`
+  </select>
+</mapper>
