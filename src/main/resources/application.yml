@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  datasource:
+    url: jdbc:mysql:///test?serverTimezone=Asia/Shanghai
+    username: root
+    password: 199944aa
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      # 不能小于 30000
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: 'classpath*:mapperxml/*.xml'
