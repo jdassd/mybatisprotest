@@ -1,8 +1,8 @@
 package com.test.mybatisprotest.controller;
 
-import com.domain.User;
-import com.service.UserService;
-import com.utils.AjaxModel;
+import com.test.mybatisprotest.domain.User;
+import com.test.mybatisprotest.service.UserService;
+import com.test.mybatisprotest.utils.AjaxModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

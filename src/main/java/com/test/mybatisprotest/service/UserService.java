@@ -1,7 +1,7 @@
 package com.test.mybatisprotest.service;
 
-import com.domain.User;
-import com.mapper.UserMapper;
+import com.test.mybatisprotest.domain.User;
+import com.test.mybatisprotest.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
