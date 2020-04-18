@@ -13,7 +13,7 @@ import java.util.Date;
 @Aspect
 @Component
 public class UserAspect {
-    @Pointcut("execution(* com.mapper.UserMapper.*(..))")
+    @Pointcut("execution(* com.test.mybatisprotest.mapper.UserMapper.*(..))")
     public void PointCutByUser() {}
 
     @Around(value = "PointCutByUser()")
