@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.domain.User">
+<mapper namespace="com.test.mybatisprotest.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.test.mybatisprotest.domain.User">
     <!--@mbg.generated-->
     <!--@Table test.`user`-->
     <id column="id" jdbcType="INTEGER" property="id" />
@@ -26,14 +26,14 @@
     delete from test.`user`
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.User" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.test.mybatisprotest.domain.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into test.`user` (username, `password`, img,
       signature)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR},
       #{signature,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.User" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.test.mybatisprotest.domain.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into test.`user`
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -65,7 +65,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.domain.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.mybatisprotest.domain.User">
     <!--@mbg.generated-->
     update test.`user`
     <set>
@@ -84,7 +84,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.domain.User">
+  <update id="updateByPrimaryKey" parameterType="com.test.mybatisprotest.domain.User">
     <!--@mbg.generated-->
     update test.`user`
     set username = #{username,jdbcType=VARCHAR},
